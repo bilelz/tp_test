@@ -1,0 +1,208 @@
+body{
+    background-color: #e9ebee; 
+    text-align: center;
+    margin: 0 auto;
+    font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+}
+
+header{
+    background: #ffeb3b;
+}
+nav{
+    text-align: left;
+}
+nav a{
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+article {
+    text-align: left;
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(128, 128, 128, 0.39);
+    margin-bottom: 5px;    
+}
+
+article a{
+    color:mediumblue;
+    text-decoration: none;  
+}
+
+article .header{
+    height: 195px;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+article .headerBg{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: #f0f0f0;
+    position: relative;
+    top:0;
+    left:0;
+}
+
+#detail article{
+        width: 100%;
+            margin: 0;
+}
+
+#detail #map{
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: block;
+}
+.description, .descriptionImage{
+    padding: 0 20px;
+}
+
+ .descriptionImage a{
+    text-align:center;
+    display:block
+}
+
+img{
+    max-width:100%
+}
+
+.description a{
+    color: blue;
+}
+
+.description a:hover{
+    text-decoration: underline;
+}
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+    transform: scale(.7);
+}
+.lazyloaded {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+}
+
+article .header span{
+    font-size: 24px;
+    font-weight: 100;
+    padding: 0 5px;
+    position: absolute;
+    background-color: transparent;
+    display: block;
+    bottom: 0;
+    color: #000;    
+    text-shadow: 0 1px 1px #fff;
+    width: 100%;
+    padding-top: 24px;
+}
+
+article .header .lazyloaded + span{
+    color: #fff;    
+    text-shadow: 0 1px 1px #000;
+    background-image: -webkit-linear-gradient(bottom,rgba(0, 0,0,0.75) 0,rgba(0,0,0,0) 100%);
+}
+
+.detail div{
+    display: inline-block;
+}
+
+.listDatePlace {
+    white-space: nowrap!important;
+    padding: 5px;
+    color: #555;
+    overflow: hidden;
+}
+
+.divDate {
+    display: inline-block;
+    width: 42px;
+    text-transform: uppercase;
+    line-height: 13px;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #aaa;
+    margin-right: 5px;
+    color: #555;
+    padding: 0;
+}
+
+.divDate span {
+    display: block;
+    white-space: nowrap!important;
+}
+.day {
+    font-size: 10px;
+    background-color: red;
+    margin-bottom: 3px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.dayNumber {
+    font-size: 20px;
+    font-family: 'Helvetica Neue Thin',HelveticaNeue-Thin,'helvetica neue',helvetica,arial,'lucida grande',sans-serif;
+    margin-top: 0;
+}
+
+.month {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.listWhere {
+    display: inline-block;
+    white-space: nowrap!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+}
+
+.dayMoment {
+    display: block;
+}
+
+.listDate, .listInfo {
+    display: inline-block;
+}
+
+@media (min-width: 544px) {
+  body {
+    max-width: 576px;
+  }   
+}
+
+@media (min-width: 768px) {
+  body {
+    max-width: 720px;
+  }
+
+  article{
+      width: 330px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    max-width: 940px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    max-width: 1140px;
+  } 
+}

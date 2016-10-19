@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#544B9E">
+        <link rel="apple-touch-icon" href="img/ic_launcher_192.png">
+        <link rel="manifest" href="manifest.json">
+        <link href="style.css" rel="stylesheet">        
+    </head>
+    <body>
+
+        <header>
+<nav>
+    <a href="./">&nbsp;🔙 Caldev</a>
+</nav>
+        </header>
+
+    <script id="template" type="x-tmpl-mustache">
+{{#.}}
+    <!-- You can use open graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+	<meta property="og:url"           content="{{thisUrl this}}" />
+	<meta property="og:type"          content="article" />
+	<meta property="og:title"         content="{{name}} - Caldev" />
+	<meta property="og:description"   content="{{description}}" />
+	<meta property="og:image"         content="{{cover.source}}" />
+
+   <article>
+    
+        <div class="header">
+            <div class="headerBg lazyload" data-bg="{{cover.source}}"></div>
+            <span>{{name}}</span>
+        </div>
+        <div class="listDatePlace">
+            <span class="divDate" title="{{start_time}}">
+                <span class="day" id="fakeDay">{{formatDate start_time "dd"}}</span>
+                <span class="dayNumber" id="fakeDayNumber">{{formatDate start_time "DD"}}</span>
+                <span class="month" id="fakeMonth">{{formatDate start_time "MMM"}}</span>
+            </span>
+            <span class="listInfo">
+                <span class="dayMoment" title="{{start_time}}">
+                    🕒&nbsp;{{fromNow start_time}} @{{formatDate start_time "H:mm"}}
+                </span>
+                <span itemprop="location" itemscope="" itemtype="http://schema.org/Place" class="listWhere" title="{{place.name}}">
+                    📍<a itemprop="name" class="listLocation" href="https://maps.google.com/maps?q={{#if place.location}}{{place.location.latitude}}+{{place.location.longitude}}{{else}}{{place.name}}{{/if}}" target="_blank">&nbsp;{{place.name}}</a>
+        
+                </span>
+            </span>
+        </div>
+        <p class="description">
+            {{text2html description}}
+        </p>
+        <p class="description descriptionImage">
+            <a href="https://www.facebook.com/events/{{id}}" target="_blank">
+                <img data-src="{{cover.source}}" class="lazyload" alt="{{name}}"/><br/>
+                Page Facebook ({{interested_count}} 👍)
+            </a>
+        </p>
+        {{#if place.location}}
+            <a href="https://maps.google.com/maps?q={{place.location.latitude}}+{{place.location.longitude}}" target="_blank" class="lazyload"
+            id="map" data-bg="https://maps.google.com/maps/api/staticmap?center={{place.location.latitude}},{{place.location.longitude}}&markers={{place.location.latitude}},{{place.location.longitude}}&zoom=12&size=1000x400&maptype=roadmap&sensor=false&language=&scale=2&key=AIzaSyBk8ZqXadQlSHZlqlKu4OR5MfveoA-hatQ">&nbsp;{{place.name}}</a>
+        {{else}}
+            <a href="https://maps.google.com/maps?q={{place.name}}" target="_blank" class="lazyload"
+            id="map" data-bg="https://maps.google.com/maps/api/staticmap?center={{encodetext place.name}}&markers={{encodetext place.name}}&zoom=12&size=1000x400&maptype=roadmap&sensor=false&language=&scale=2&key=AIzaSyBk8ZqXadQlSHZlqlKu4OR5MfveoA-hatQ">&nbsp;{{place.name}}</a>
+        {{/if}}        
+    </article>
+{{/.}}
+</script>
+<div id="detail">
+    <article>    
+        <div class="header">
+            <div class="headerBg"></div>
+            <span id="fakeName">&nbsp;</span>
+        </div>
+        <div class="listDatePlace">
+            <span class="divDate"">
+                <span class="day" id="fakeDay">&nbsp;</span>
+                <span class="dayNumber" id="fakeDayNumber">&nbsp;</span>
+                <span class="month" id="fakeMonth">&nbsp;</span>
+            </span>
+            <span class="listInfo">
+                <span class="dayMoment"">
+                    🕒&nbsp;
+                </span>
+                <span  class="listWhere">
+                    📍&nbsp;<span class="listLocation" id="fakePlace"></span>
+                </span>
+            </span>
+        </div>
+        <p class="description">
+            &nbsp;
+        </p>       
+        <a href="https://www.google.com/maps?q={{place.name}}" target="_blank" id="map" style="background-color:#a3ccff')">&nbsp;</a>
+    </article>
+</div>
+
+<script>
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+            window.lazySizesConfig.expand = -10;
+            var fake = decodeURI(document.location.hash.slice(1)).split("/");
+            if(fake.length==5){
+                document.getElementById("fakeName").innerHTML = fake[0];
+                document.getElementById("fakeDay").innerHTML = fake[1];
+                document.getElementById("fakeDayNumber").innerHTML = fake[2];
+                document.getElementById("fakeMonth").innerHTML = fake[3];
+                document.getElementById("fakePlace").innerHTML = fake[4];                
+            }
+            
+        </script>
+        <script type="text/javascript" src="libs.js" defer></script>        
+        <script type="text/javascript" src="detail.js" defer></script>
+
+    </body>
+</html>

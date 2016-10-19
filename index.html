@@ -1,1 +1,124 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#544B9E">
+        <link rel="apple-touch-icon" href="img/ic_launcher_192.png">
+        <link rel="manifest" href="manifest.json">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+    <header>
+        <nav>
+            <a href="./">&nbsp;📅 Caldev</a>
+        </nav>
+    </header>
+    <script id="template" type="x-tmpl-mustache">
+{{#.}}
+   <article>
+    <a href="detail.html?{{id}}#{{getHashUrl this}}">
+        <div class="header">
+            <div class="headerBg lazyload" data-bg="{{cover.source}}"></div>
+            <span>{{name}}</span>
+        </div>
+        <div class="listDatePlace">
+            <span class="divDate" title="{{start_time}}">
+                <span class="day">{{formatDate start_time "dd"}}</span>
+                <span class="dayNumber">{{formatDate start_time "DD"}}</span>
+                <span class="month">{{formatDate start_time "MMM"}}</span>
+            </span>
+            <span class="listInfo">
+                <span class="dayMoment" title="{{start_time}}">
+                    🕒&nbsp;{{fromNow start_time}}
+                </span>
+                <span itemprop="location" itemscope="" itemtype="http://schema.org/Place" class="listWhere" title="{{place.name}}">
+                    📍&nbsp;<span itemprop="name" class="listLocation">{{place.name}}</span>
+                </span>
+            </span>
+        </div>
+        </a>
+    </article>
+{{/.}}
+</script>
+<div id="eventList">
+     <article>    
+        <div class="header">
+            <div class="headerBg"></div>
+            <span>&nbsp;</span>
+        </div>
+        <div class="listDatePlace">
+            <span class="divDate"">
+                <span class="day">&nbsp;</span>
+                <span class="dayNumber">&nbsp;</span>
+                <span class="month">&nbsp;</span>
+            </span>
+            <span class="listInfo">
+                <span class="dayMoment"">
+                    🕒&nbsp;
+                </span>
+                <span  class="listWhere">
+                    📍&nbsp;
+                    <span class="listLocation"></span>
+                </span>
+            </span>
+        </div>    
+    </article>
+     <article>    
+        <div class="header">
+            <div class="headerBg"></div>
+            <span>&nbsp;</span>
+        </div>
+        <div class="listDatePlace">
+            <span class="divDate"">
+                <span class="day">&nbsp;</span>
+                <span class="dayNumber">&nbsp;</span>
+                <span class="month">&nbsp;</span>
+            </span>
+            <span class="listInfo">
+                <span class="dayMoment"">
+                    🕒&nbsp;
+                </span>
+                <span  class="listWhere">
+                    📍&nbsp;
+                    <span class="listLocation"></span>
+                </span>
+            </span>
+        </div>    
+    </article>
+     <article>    
+        <div class="header">
+            <div class="headerBg"></div>
+            <span>&nbsp;</span>
+        </div>
+        <div class="listDatePlace">
+            <span class="divDate"">
+                <span class="day">&nbsp;</span>
+                <span class="dayNumber">&nbsp;</span>
+                <span class="month">&nbsp;</span>
+            </span>
+            <span class="listInfo">
+                <span class="dayMoment"">
+                    🕒&nbsp;
+                </span>
+                <span  class="listWhere">
+                    📍&nbsp;
+                    <span class="listLocation"></span>
+                </span>
+            </span>
+        </div>    
+    </article>
+    
+</div>
+
+        <script>
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+            window.lazySizesConfig.expand = -10;
+        </script>
+        <script type="text/javascript" src="libs.js"></script> 
+        <script type="text/javascript" src="main.js"></script>
+
+    </body>
+</html>
